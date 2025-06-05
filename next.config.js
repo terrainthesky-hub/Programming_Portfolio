@@ -9,7 +9,7 @@ let basePath = '';
 
 // IMPORTANT: Replace 'your-repo-name' with the actual name of your repository
 if (isGithubActions) {
-  const repo = 'your-repo-name'; 
+  const repo = 'Programming_Portfolio'; 
   assetPrefix = `/${repo}/`;
   basePath = `/${repo}`;
 }
