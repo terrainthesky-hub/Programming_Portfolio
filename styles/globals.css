@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.interactive-graph {
+  width: 100%;       /* Take up the full width of the container */
+  height: 500px;     /* Set a default height, adjust as needed */
+  border: none;      /* Remove the default ugly iframe border */
+  border-radius: 8px; /* Optional: adds a nice rounded corner */
+  overflow: hidden;  /* Hides any overflow content */
+}
+
+/* Optional: Adjust height for smaller screens */
+@media (max-width: 768px) {
+  .interactive-graph {
+    height: 400px; /* A smaller height for mobile */
+  }
+}
