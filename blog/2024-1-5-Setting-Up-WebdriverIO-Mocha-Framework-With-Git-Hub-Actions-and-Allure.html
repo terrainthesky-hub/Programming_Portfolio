@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8" data-next-head=""/><meta name="viewport" content="width=device-width" data-next-head=""/><title data-next-head="">Setting up WebdriverIO Mocha Framework With Docker, GitHub Actions and Allure.</title><link rel="preload" href="/your-repo-name/_next/static/css/86a3f3b21e687f7f.css" as="style"/><link rel="stylesheet" href="/your-repo-name/_next/static/css/86a3f3b21e687f7f.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" noModule="" src="/your-repo-name/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/your-repo-name/_next/static/chunks/webpack-09f3b65b170a115d.js" defer=""></script><script src="/your-repo-name/_next/static/chunks/framework-2f335d22a7318891.js" defer=""></script><script src="/your-repo-name/_next/static/chunks/main-484bc072f470332a.js" defer=""></script><script src="/your-repo-name/_next/static/chunks/pages/_app-c44db3626848d2ae.js" defer=""></script><script src="/your-repo-name/_next/static/chunks/pages/blog/%5Bid%5D-61e3eb6444c7f5e3.js" defer=""></script><script src="/your-repo-name/_next/static/5Ov5TXS2YfdiEn5qFziPJ/_buildManifest.js" defer=""></script><script src="/your-repo-name/_next/static/5Ov5TXS2YfdiEn5qFziPJ/_ssgManifest.js" defer=""></script></head><body class="antialiased"><div id="__next"><div class="flex flex-col min-h-screen bg-gray-50 text-gray-800"><header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-md"><nav class="container mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-16"><div class="flex-shrink-0"><a class="text-2xl font-bold text-gray-900 hover:text-indigo-600 transition-colors" href="/your-repo-name">Your Name</a></div><div class="hidden md:block"><div class="ml-10 flex items-baseline space-x-4"><a class="text-gray-600 hover:text-indigo-500 px-3 py-2 rounded-md text-sm font-medium" href="/your-repo-name">Home</a><a class="text-gray-600 hover:text-indigo-500 px-3 py-2 rounded-md text-sm font-medium" href="/your-repo-name/blog">Blog</a></div></div></div></nav></header><main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8"><article class="max-w-3xl mx-auto py-12"><div class="bg-white p-8 md:p-12 rounded-lg shadow-lg"><h1 class="text-4xl font-extrabold text-gray-900 mb-2">Setting up WebdriverIO Mocha Framework With Docker, GitHub Actions and Allure.</h1><p class="text-gray-500 mb-8"></p><div class="prose lg:prose-xl max-w-none"><p>There's quite a few different technologies at work, but we're going to assume you have and can use, Git, VS Code, Git Bash. We'll begin starting off with setting up WebdriverIO, Mocha, and Allure.</p>
+<p>In your main directory, in the bash terminal, enter this to begin the instillation of WebdriverIO and Mocha for the WebdriverIO Command Line Interface.</p>
+<pre><code>    npm install @wdio/cli
+</code></pre>
+<p>After, begin the configuration with</p>
+<pre><code>    npx wdio config
+</code></pre>
+<p>These are the following options to choose:</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/f9bee03f-cda5-429b-9e26-3eb4fb4486cb" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/74a6a37c-ae4a-4405-82b4-4bf314da960e" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/8b9eebcf-a0ab-4b36-91fc-a658be7eacc6" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/3d098dcf-6a2a-4beb-aeb7-1f975d8df201" alt="image"></p>
+<p>Press space to select:</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/b2e68906-5679-4102-b1ef-caac80644a06" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/8c250dee-58cc-455b-b0da-8fd67c1d6157" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/b18c700b-fe9e-489e-b18e-8ba136f5bc6f" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/c04a1aff-d2d4-4020-9595-70fcb6d2ca62" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/b2bc33a9-8a59-4855-89b1-bceac0155d38" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/d7b0f5d3-873f-4a85-b05f-5688c22e63c7" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/a7d06830-a53d-42e3-8696-ee7f556751bf" alt="image"></p>
+<p>Choose more here if you need them:</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/a5ef8b00-02fb-45c1-a08f-8a461f560357" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/ead8d4d5-655a-44eb-90ac-7fd9caef2449" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/ba955ac4-7097-4acf-811f-a0173d8eaa10" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/3e104f0e-f7cb-4755-ad7b-53d4ae4e6785" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/1c8744ab-716e-4723-afcf-88afc5c27653" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/1283a63e-c627-4319-b14c-cdd2a23cb42b" alt="image"></p>
+<p>From here you can begin to add tests to your spec files or just use the default ones made in the configuration. Test out the default tests by typing in</p>
+<pre><code>    npm run wdio
+                    
+</code></pre>
+<p>Next, you want to configure your wdio.conf.ts file correctly to work with the runners and services like Docker and Allure. I'm using the default port for docker for now:</p>
+<pre><code>    services: [
+            ['docker', {
+                // Docker options
+                image: 'selenium/standalone-chrome',
+                healthCheck: 'http://localhost:4444',
+                options: {
+                    p: ['4444:4444'],
+                    // Add other Docker options here
+                },
+                // Add other wdio-docker-service configurations here
+            }],
+        ],
+</code></pre>
+<p>Configure your reporter to this:</p>
+<pre><code>    reporters: [
+            'spec',
+            ['allure', {
+              outputDir: 'allure-results',
+              disableWebdriverStepsReporting: true,
+              disableWebdriverScreenshotsReporting: false,
+            }],
+            ],
+</code></pre>
+<p>Next, you'll want to get your package.json file set up for using Allure, Mocha, and Chrome:</p>
+<pre><code>    {
+      "name": "my-new-project",
+      "type": "module",
+      "devDependencies": {
+        "@wdio/allure-reporter": "^8.27.0",
+        "@wdio/cli": "^8.26.1",
+        "@wdio/local-runner": "^8.26.1",
+        "@wdio/mocha-framework": "^8.24.12",
+        "@wdio/spec-reporter": "^8.24.2",
+        "allure-commandline": "^2.25.0",
+        "allure-mocha": "^2.10.0",
+        "chromedriver": "^119.0.1",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.3.3",
+        "wdio-chromedriver-service": "^8.1.1",
+        "wdio-docker-service": "^3.2.1",
+        "wdio-wait-for": "^3.0.9"
+      },
+      "scripts": {
+        "wdio": "wdio run ./wdio.conf.ts",
+        "allure:report": "allure generate allure-results --clean"
+      },
+      "dependencies": {
+        "allure": "^0.0.0",
+        "string-width": "^6.1.0"
+      },
+      "mocha": {
+        "parallel": false,
+        "reporter": "allure-mocha",
+        "reporterOptions": {
+          "resultsDir": "allure-results"
+        }
+      }
+    }
+</code></pre>
+<p>Now you should have Docker installed, and create a Dockerfile with this configuration. Use environment variables to open the port you want:</p>
+<pre><code>    # Use an official Node runtime as a parent image
+    FROM node:latest
+    
+    # Install Chrome for running tests
+    RUN apt-get update &#x26;&#x26; apt-get install -y wget gnupg2
+    RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+    RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+    RUN apt-get update &#x26;&#x26; apt-get install -y google-chrome-stable
+    
+    # Install other dependencies
+    RUN apt-get install -y libnss3 libgconf-2-4 libfontconfig1
+    
+    # Set the working directory in the container
+    WORKDIR /usr/src/app
+    
+    # Copy the current directory contents into the container at /usr/src/app
+    COPY . .
+
+    # Expose the port dynamically
+    EXPOSE $PORT
+    
+    # Install any needed packages specified in package.json
+    COPY package*.json ./
+    RUN npm install
+    
+    # Run WebdriverIO tests when the container launches
+    CMD ["npx", "wdio", "wdio.conf.ts"]
+</code></pre>
+<p>Next, you'll create a folder called .github which contains a folder called workflows, then create a file called main.yml. Here is the configuration to install ubunutu, build a Docker image, run the Docker image, and share the allure-results folder with your Github Actions CLI. This will use a default security token from Github, and create an artifact that it shares between the Docker Image and the Github Actions CLI:</p>
+<pre><code>    name: CI
+
+    on:
+      push:
+        branches: [ main ]
+      pull_request:
+        branches: [ main ]
+    
+    jobs:
+      build-and-run:
+        runs-on: ubuntu-latest
+    
+        steps:
+        - uses: actions/checkout@v2
+    
+        - name: Build the Docker image
+          run: docker build . --file Dockerfile --tag your-docker-image-name-here
+    
+        - name: Run the Docker image
+          run: docker run -v ${PWD}/allure-results:/usr/src/app/allure-results -p 4444:4444 your-docker-image-name-here || true
+    
+        - name: Upload Allure results
+          uses: actions/upload-artifact@v2
+          with:
+            name: allure-results
+            path: ./allure-results
+      
+        - name: Download Allure results
+          uses: actions/download-artifact@v2
+          with:
+              name: allure-results
+    
+        - name: Install Allure CLI
+          run: npm install -g allure-commandline
+    
+        - name: Generate Allure Report
+          run: npm run allure:report
+    
+        - name: Deploy to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./allure-report
+            publish_branch: gh-pages
+</code></pre>
+<p>To configure github, you'll want to go to the settings and pages, and make sure you have this as set up for the default Github Pages:</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/9ef54d97-562c-4dc5-a0bf-956a8deb1992" alt="image"></p>
+<p>Go to settings, Actions, then General and set your permissions to this:</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/a96f17c2-4fb3-4861-bacc-5e750f946c86" alt="image"></p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/98454d77-7c7c-4f3e-b6ac-8332e5cc6da0" alt="image"></p>
+<p>Now in your bash terminal do "git add .", then git commit -m "your commit name", and git push to see it run your Docker container, test suite, and create your allure report on the gh-pages branch hosted by github pages. I have a purposefully added a failed test to show it will run even if one of the tests fails:</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/624f4825-042c-4a3b-9419-6b10626bf4d2" alt="image"></p>
+<p>Now you can configure Allure, the framework, and other github permissions as needed.</p>
+</div></div></article></main><footer class="bg-white border-t mt-12 py-6"><div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500"><p>© <!-- -->2025<!-- --> Your Name. All Rights Reserved.</p><div class="flex justify-center space-x-4 mt-2"><a href="https://github.com/terrainthesky-hub" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500">GitHub</a><a href="https://linkedin.com/in/lesley-rich-86bb8572/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500">LinkedIn</a></div></div></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"2024-1-5-Setting-Up-WebdriverIO-Mocha-Framework-With-Git-Hub-Actions-and-Allure","contentHtml":"\u003cp\u003eThere's quite a few different technologies at work, but we're going to assume you have and can use, Git, VS Code, Git Bash. We'll begin starting off with setting up WebdriverIO, Mocha, and Allure.\u003c/p\u003e\n\u003cp\u003eIn your main directory, in the bash terminal, enter this to begin the instillation of WebdriverIO and Mocha for the WebdriverIO Command Line Interface.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e    npm install @wdio/cli\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAfter, begin the configuration with\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e    npx wdio config\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThese are the following options to choose:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/f9bee03f-cda5-429b-9e26-3eb4fb4486cb\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/74a6a37c-ae4a-4405-82b4-4bf314da960e\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/8b9eebcf-a0ab-4b36-91fc-a658be7eacc6\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/3d098dcf-6a2a-4beb-aeb7-1f975d8df201\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003ePress space to select:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/b2e68906-5679-4102-b1ef-caac80644a06\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/8c250dee-58cc-455b-b0da-8fd67c1d6157\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/b18c700b-fe9e-489e-b18e-8ba136f5bc6f\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/c04a1aff-d2d4-4020-9595-70fcb6d2ca62\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/b2bc33a9-8a59-4855-89b1-bceac0155d38\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/d7b0f5d3-873f-4a85-b05f-5688c22e63c7\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/a7d06830-a53d-42e3-8696-ee7f556751bf\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eChoose more here if you need them:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/a5ef8b00-02fb-45c1-a08f-8a461f560357\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/ead8d4d5-655a-44eb-90ac-7fd9caef2449\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/ba955ac4-7097-4acf-811f-a0173d8eaa10\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/3e104f0e-f7cb-4755-ad7b-53d4ae4e6785\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/1c8744ab-716e-4723-afcf-88afc5c27653\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/1283a63e-c627-4319-b14c-cdd2a23cb42b\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eFrom here you can begin to add tests to your spec files or just use the default ones made in the configuration. Test out the default tests by typing in\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e    npm run wdio\n                    \n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNext, you want to configure your wdio.conf.ts file correctly to work with the runners and services like Docker and Allure. I'm using the default port for docker for now:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e    services: [\n            ['docker', {\n                // Docker options\n                image: 'selenium/standalone-chrome',\n                healthCheck: 'http://localhost:4444',\n                options: {\n                    p: ['4444:4444'],\n                    // Add other Docker options here\n                },\n                // Add other wdio-docker-service configurations here\n            }],\n        ],\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eConfigure your reporter to this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e    reporters: [\n            'spec',\n            ['allure', {\n              outputDir: 'allure-results',\n              disableWebdriverStepsReporting: true,\n              disableWebdriverScreenshotsReporting: false,\n            }],\n            ],\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNext, you'll want to get your package.json file set up for using Allure, Mocha, and Chrome:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e    {\n      \"name\": \"my-new-project\",\n      \"type\": \"module\",\n      \"devDependencies\": {\n        \"@wdio/allure-reporter\": \"^8.27.0\",\n        \"@wdio/cli\": \"^8.26.1\",\n        \"@wdio/local-runner\": \"^8.26.1\",\n        \"@wdio/mocha-framework\": \"^8.24.12\",\n        \"@wdio/spec-reporter\": \"^8.24.2\",\n        \"allure-commandline\": \"^2.25.0\",\n        \"allure-mocha\": \"^2.10.0\",\n        \"chromedriver\": \"^119.0.1\",\n        \"ts-node\": \"^10.9.1\",\n        \"typescript\": \"^5.3.3\",\n        \"wdio-chromedriver-service\": \"^8.1.1\",\n        \"wdio-docker-service\": \"^3.2.1\",\n        \"wdio-wait-for\": \"^3.0.9\"\n      },\n      \"scripts\": {\n        \"wdio\": \"wdio run ./wdio.conf.ts\",\n        \"allure:report\": \"allure generate allure-results --clean\"\n      },\n      \"dependencies\": {\n        \"allure\": \"^0.0.0\",\n        \"string-width\": \"^6.1.0\"\n      },\n      \"mocha\": {\n        \"parallel\": false,\n        \"reporter\": \"allure-mocha\",\n        \"reporterOptions\": {\n          \"resultsDir\": \"allure-results\"\n        }\n      }\n    }\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNow you should have Docker installed, and create a Dockerfile with this configuration. Use environment variables to open the port you want:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e    # Use an official Node runtime as a parent image\n    FROM node:latest\n    \n    # Install Chrome for running tests\n    RUN apt-get update \u0026#x26;\u0026#x26; apt-get install -y wget gnupg2\n    RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -\n    RUN sh -c 'echo \"deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\" \u003e\u003e /etc/apt/sources.list.d/google-chrome.list'\n    RUN apt-get update \u0026#x26;\u0026#x26; apt-get install -y google-chrome-stable\n    \n    # Install other dependencies\n    RUN apt-get install -y libnss3 libgconf-2-4 libfontconfig1\n    \n    # Set the working directory in the container\n    WORKDIR /usr/src/app\n    \n    # Copy the current directory contents into the container at /usr/src/app\n    COPY . .\n\n    # Expose the port dynamically\n    EXPOSE $PORT\n    \n    # Install any needed packages specified in package.json\n    COPY package*.json ./\n    RUN npm install\n    \n    # Run WebdriverIO tests when the container launches\n    CMD [\"npx\", \"wdio\", \"wdio.conf.ts\"]\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNext, you'll create a folder called .github which contains a folder called workflows, then create a file called main.yml. Here is the configuration to install ubunutu, build a Docker image, run the Docker image, and share the allure-results folder with your Github Actions CLI. This will use a default security token from Github, and create an artifact that it shares between the Docker Image and the Github Actions CLI:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e    name: CI\n\n    on:\n      push:\n        branches: [ main ]\n      pull_request:\n        branches: [ main ]\n    \n    jobs:\n      build-and-run:\n        runs-on: ubuntu-latest\n    \n        steps:\n        - uses: actions/checkout@v2\n    \n        - name: Build the Docker image\n          run: docker build . --file Dockerfile --tag your-docker-image-name-here\n    \n        - name: Run the Docker image\n          run: docker run -v ${PWD}/allure-results:/usr/src/app/allure-results -p 4444:4444 your-docker-image-name-here || true\n    \n        - name: Upload Allure results\n          uses: actions/upload-artifact@v2\n          with:\n            name: allure-results\n            path: ./allure-results\n      \n        - name: Download Allure results\n          uses: actions/download-artifact@v2\n          with:\n              name: allure-results\n    \n        - name: Install Allure CLI\n          run: npm install -g allure-commandline\n    \n        - name: Generate Allure Report\n          run: npm run allure:report\n    \n        - name: Deploy to GitHub Pages\n          uses: peaceiris/actions-gh-pages@v3\n          with:\n            github_token: ${{ secrets.GITHUB_TOKEN }}\n            publish_dir: ./allure-report\n            publish_branch: gh-pages\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo configure github, you'll want to go to the settings and pages, and make sure you have this as set up for the default Github Pages:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/9ef54d97-562c-4dc5-a0bf-956a8deb1992\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eGo to settings, Actions, then General and set your permissions to this:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/a96f17c2-4fb3-4861-bacc-5e750f946c86\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/98454d77-7c7c-4f3e-b6ac-8332e5cc6da0\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eNow in your bash terminal do \"git add .\", then git commit -m \"your commit name\", and git push to see it run your Docker container, test suite, and create your allure report on the gh-pages branch hosted by github pages. I have a purposefully added a failed test to show it will run even if one of the tests fails:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/624f4825-042c-4a3b-9419-6b10626bf4d2\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eNow you can configure Allure, the framework, and other github permissions as needed.\u003c/p\u003e\n","layout":"post","title":"Setting up WebdriverIO Mocha Framework With Docker, GitHub Actions and Allure.","subtitle":"WebdriverIO, npm, Typescript, Mocha, Docker, Github Actions, Allure"}},"__N_SSG":true},"page":"/blog/[id]","query":{"id":"2024-1-5-Setting-Up-WebdriverIO-Mocha-Framework-With-Git-Hub-Actions-and-Allure"},"buildId":"5Ov5TXS2YfdiEn5qFziPJ","assetPrefix":"/your-repo-name","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

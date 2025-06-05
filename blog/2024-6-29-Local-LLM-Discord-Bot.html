@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8" data-next-head=""/><meta name="viewport" content="width=device-width" data-next-head=""/><title data-next-head=""></title><link rel="preload" href="/your-repo-name/_next/static/css/86a3f3b21e687f7f.css" as="style"/><link rel="stylesheet" href="/your-repo-name/_next/static/css/86a3f3b21e687f7f.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" noModule="" src="/your-repo-name/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/your-repo-name/_next/static/chunks/webpack-09f3b65b170a115d.js" defer=""></script><script src="/your-repo-name/_next/static/chunks/framework-2f335d22a7318891.js" defer=""></script><script src="/your-repo-name/_next/static/chunks/main-484bc072f470332a.js" defer=""></script><script src="/your-repo-name/_next/static/chunks/pages/_app-c44db3626848d2ae.js" defer=""></script><script src="/your-repo-name/_next/static/chunks/pages/blog/%5Bid%5D-61e3eb6444c7f5e3.js" defer=""></script><script src="/your-repo-name/_next/static/5Ov5TXS2YfdiEn5qFziPJ/_buildManifest.js" defer=""></script><script src="/your-repo-name/_next/static/5Ov5TXS2YfdiEn5qFziPJ/_ssgManifest.js" defer=""></script></head><body class="antialiased"><div id="__next"><div class="flex flex-col min-h-screen bg-gray-50 text-gray-800"><header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-md"><nav class="container mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-center justify-between h-16"><div class="flex-shrink-0"><a class="text-2xl font-bold text-gray-900 hover:text-indigo-600 transition-colors" href="/your-repo-name">Your Name</a></div><div class="hidden md:block"><div class="ml-10 flex items-baseline space-x-4"><a class="text-gray-600 hover:text-indigo-500 px-3 py-2 rounded-md text-sm font-medium" href="/your-repo-name">Home</a><a class="text-gray-600 hover:text-indigo-500 px-3 py-2 rounded-md text-sm font-medium" href="/your-repo-name/blog">Blog</a></div></div></div></nav></header><main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8"><article class="max-w-3xl mx-auto py-12"><div class="bg-white p-8 md:p-12 rounded-lg shadow-lg"><h1 class="text-4xl font-extrabold text-gray-900 mb-2"></h1><p class="text-gray-500 mb-8"></p><div class="prose lg:prose-xl max-w-none"><p>So I decided to make a discord bot that uses a locally running Large Language Model. In this case, I used gemma2:9b, a lightweight, low parameter LLM that can be
+run with limited VRAM (llama70b needs at least 120 GB of VRAM to run at a reasonable speed). I installed it using <a href="https://ollama.com/">Ollama</a>. Once you've downloaded and installed Ollama,
+pull the LLM model you want in your terminal with a similar command.</p>
+<pre><code>ollama pull gemma2:9b
+</code></pre>
+<p>After, type this to run it locally.</p>
+<pre><code>ollama run gemma2
+</code></pre>
+<p>Now you can run the model locally and send it messages:</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/22f44025-6a81-4213-bb84-d45560706bd2" alt="image"></p>
+<p>Once you've done that it's time to set up Discord. You're going to want to go to <a href="https://discord.com/developers/applications">Discord Applications and log in</a>.
+Once there, select "New Application" button.</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/54a7f256-278d-4a0f-a14e-f0e727fe4b45" alt="image"></p>
+<p>Click on bot on the left tab and set up the following options. Name your bot, mine is LocalGemma2Bot.</p>
+<p>Turn on Oauth2 Code Grant</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/96ecda14-dc27-48b9-a878-58f861e9d83a" alt="image"></p>
+<p>Then set Message Content Intent to True:</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/9a65a6b1-f708-4ec7-84de-05837a644c11" alt="image"></p>
+<p>Now go to OAuth2 on the left tab. And under URL Generator Select "bot".</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/18b0beba-bea3-4cb1-8420-464e1b7f2240" alt="image"></p>
+<p>Under Bot Permissions select Send Messages and Read Message History.</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/07fe2f32-78c0-42d2-bc70-af0f84138e52" alt="image"></p>
+<p>Copy the generated URL at the bottom and go to that webpage. Now you can add the bot to a server:</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/1199fde3-3750-4d64-9c0d-d1ba29f1292e" alt="image"></p>
+<p>You'll want to take note of the bot token on the bot page on from the left tab to save for later. Now you're ready to write the Python code. Create a bot.py file, and here is code for the defaulted Ollama gemma2 settings:</p>
+<pre><code>import os
+from dotenv import load_dotenv
+import json
+import discord
+import requests
+
+load_dotenv()
+
+intents = discord.Intents.default()
+intents.message_content = True
+client = discord.Client(intents=intents)
+
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+OLLAMA_API_URL = os.getenv('OLLAMA_API_URL')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('!ask '):
+        query = message.content[5:]
+        
+        payload = {
+            'model': 'gemma2',
+            'prompt': query
+        }
+        
+        response = requests.post(OLLAMA_API_URL, json=payload)
+        
+        if response.status_code == 200:
+            try:
+                json_objects = response.text.split('\n')
+                responses = []
+                for obj in json_objects:
+                    if obj.strip():
+                        parsed_obj = json.loads(obj)
+                        responses.append(parsed_obj['response'])
+                
+                final_response = ''.join(responses)
+                await message.channel.send(final_response)
+            except ValueError as e:
+                await message.channel.send("Sorry, I couldn't parse the response from the LLM.")
+        else:
+            await message.channel.send("Sorry, I couldn't get a response from the LLM.")
+
+client.run(DISCORD_TOKEN)
+</code></pre>
+<p>This script will send your discord bot's query to your local machine where it will return the local LLM's series of tokens, combine and clean those json token responses,
+and send them to the channel.</p>
+<p>For proper security, set up a .env file, and grab your discord bot token from the discord webpage under the bot tab and enter this into your .env:</p>
+<pre><code>  DISCORD_TOKEN=YOUR_DISCORD_TOKEN_HERE
+</code></pre>
+<p>Also add your Ollama_Api_Url variable to the .env file as well, but you'll want to generate your own port:</p>
+<pre><code>  OLLAMA_API_URL=http://localhost:YOUR_PORT_NUMBER_HERE/api/generate
+  
+</code></pre>
+<p>Once you've created this .env file and bot.py file, create a pip environment and install the following dependencies.</p>
+<pre><code>  pip install requests
+  pip install discord
+  pip install python-dotenv
+</code></pre>
+<p>Now you're ready to run your bot from the terminal by running the bot.py Python script. Use !ask MESSAGE_HERE in discord to query the bot.</p>
+<p><img src="https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/f413b6d2-994c-48f1-9167-72df26d460dc" alt="image"></p>
+</div></div></article></main><footer class="bg-white border-t mt-12 py-6"><div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500"><p>© <!-- -->2025<!-- --> Your Name. All Rights Reserved.</p><div class="flex justify-center space-x-4 mt-2"><a href="https://github.com/terrainthesky-hub" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500">GitHub</a><a href="https://linkedin.com/in/lesley-rich-86bb8572/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500">LinkedIn</a></div></div></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"2024-6-29-Local-LLM-Discord-Bot","contentHtml":"\u003cp\u003eSo I decided to make a discord bot that uses a locally running Large Language Model. In this case, I used gemma2:9b, a lightweight, low parameter LLM that can be\nrun with limited VRAM (llama70b needs at least 120 GB of VRAM to run at a reasonable speed). I installed it using \u003ca href=\"https://ollama.com/\"\u003eOllama\u003c/a\u003e. Once you've downloaded and installed Ollama,\npull the LLM model you want in your terminal with a similar command.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eollama pull gemma2:9b\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAfter, type this to run it locally.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eollama run gemma2\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNow you can run the model locally and send it messages:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/22f44025-6a81-4213-bb84-d45560706bd2\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eOnce you've done that it's time to set up Discord. You're going to want to go to \u003ca href=\"https://discord.com/developers/applications\"\u003eDiscord Applications and log in\u003c/a\u003e.\nOnce there, select \"New Application\" button.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/54a7f256-278d-4a0f-a14e-f0e727fe4b45\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eClick on bot on the left tab and set up the following options. Name your bot, mine is LocalGemma2Bot.\u003c/p\u003e\n\u003cp\u003eTurn on Oauth2 Code Grant\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/96ecda14-dc27-48b9-a878-58f861e9d83a\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eThen set Message Content Intent to True:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/9a65a6b1-f708-4ec7-84de-05837a644c11\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eNow go to OAuth2 on the left tab. And under URL Generator Select \"bot\".\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/18b0beba-bea3-4cb1-8420-464e1b7f2240\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eUnder Bot Permissions select Send Messages and Read Message History.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/07fe2f32-78c0-42d2-bc70-af0f84138e52\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eCopy the generated URL at the bottom and go to that webpage. Now you can add the bot to a server:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/1199fde3-3750-4d64-9c0d-d1ba29f1292e\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eYou'll want to take note of the bot token on the bot page on from the left tab to save for later. Now you're ready to write the Python code. Create a bot.py file, and here is code for the defaulted Ollama gemma2 settings:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport os\nfrom dotenv import load_dotenv\nimport json\nimport discord\nimport requests\n\nload_dotenv()\n\nintents = discord.Intents.default()\nintents.message_content = True\nclient = discord.Client(intents=intents)\n\nDISCORD_TOKEN = os.getenv('DISCORD_TOKEN')\nOLLAMA_API_URL = os.getenv('OLLAMA_API_URL')\n\n@client.event\nasync def on_message(message):\n    if message.author == client.user:\n        return\n\n    if message.content.startswith('!ask '):\n        query = message.content[5:]\n        \n        payload = {\n            'model': 'gemma2',\n            'prompt': query\n        }\n        \n        response = requests.post(OLLAMA_API_URL, json=payload)\n        \n        if response.status_code == 200:\n            try:\n                json_objects = response.text.split('\\n')\n                responses = []\n                for obj in json_objects:\n                    if obj.strip():\n                        parsed_obj = json.loads(obj)\n                        responses.append(parsed_obj['response'])\n                \n                final_response = ''.join(responses)\n                await message.channel.send(final_response)\n            except ValueError as e:\n                await message.channel.send(\"Sorry, I couldn't parse the response from the LLM.\")\n        else:\n            await message.channel.send(\"Sorry, I couldn't get a response from the LLM.\")\n\nclient.run(DISCORD_TOKEN)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis script will send your discord bot's query to your local machine where it will return the local LLM's series of tokens, combine and clean those json token responses,\nand send them to the channel.\u003c/p\u003e\n\u003cp\u003eFor proper security, set up a .env file, and grab your discord bot token from the discord webpage under the bot tab and enter this into your .env:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e  DISCORD_TOKEN=YOUR_DISCORD_TOKEN_HERE\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAlso add your Ollama_Api_Url variable to the .env file as well, but you'll want to generate your own port:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e  OLLAMA_API_URL=http://localhost:YOUR_PORT_NUMBER_HERE/api/generate\n  \n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eOnce you've created this .env file and bot.py file, create a pip environment and install the following dependencies.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e  pip install requests\n  pip install discord\n  pip install python-dotenv\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNow you're ready to run your bot from the terminal by running the bot.py Python script. Use !ask MESSAGE_HERE in discord to query the bot.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://github.com/terrainthesky-hub/terrainthesky-hub.github.io/assets/60892621/f413b6d2-994c-48f1-9167-72df26d460dc\" alt=\"image\"\u003e\u003c/p\u003e\n"}},"__N_SSG":true},"page":"/blog/[id]","query":{"id":"2024-6-29-Local-LLM-Discord-Bot"},"buildId":"5Ov5TXS2YfdiEn5qFziPJ","assetPrefix":"/your-repo-name","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
