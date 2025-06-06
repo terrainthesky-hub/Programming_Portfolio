@@ -47,7 +47,7 @@ export default function Home({ allPostsData }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allPostsData.slice(0, 3).map(({ id, date, title, excerpt }) => (
             <Link href={`/blog/${id}`} key={id}>
-              <div className="block bg-slate-800 rounded-lg shadow-lg hover:shadow-cyan-500/10 border border-slate-700 hover:border-teal-400 transition-all duration-300 p-6 cursor-pointer">
+              <div className="max-w-3xl mx-auto bg-slate-800 border border-slate-700 p-8 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
                 <p className="text-gray-500 text-sm mb-3">{date}</p>
                 <p className="text-gray-700">{excerpt}</p>

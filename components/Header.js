@@ -9,7 +9,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             {/* Make the main brand pop with the accent color */}
             <Link href="/" className="text-2xl font-bold text-teal-400 hover:text-teal-300 transition-colors duration-300">
-              Your Name
+              Lesley Rich
             </Link>
           </div>
           <div className="hidden md:block">
