@@ -48,9 +48,9 @@ export default function Home({ allPostsData }) {
           {allPostsData.slice(0, 3).map(({ id, date, title, excerpt }) => (
             <Link href={`/blog/${id}`} key={id}>
               <div className="max-w-3xl mx-auto bg-slate-800 border border-slate-700 p-8 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-                <p className="text-gray-500 text-sm mb-3">{date}</p>
-                <p className="text-gray-700">{excerpt}</p>
+                <h3 className="text-xl font-bold text-slate-100 mb-2">{title}</h3>
+                <p className="text-slate-400 text-sm mb-3">{date}</p>
+                <p className="text-slate-300">{excerpt}</p>
               </div>
             </Link>
           ))}
