@@ -1,3 +1,10 @@
+---
+layout: post
+title: Reddit Scraper
+subtitle: Python
+---
+
+
 I was interested in creating a Reddit scraper so I could get the news but not be tempted to mindlessly scroll on social media. So, I created a Reddit scraper that extracts
 images, some videos, text posts, youtube links, and the top 5 comment threads (formatted) from 5 different subreddits. The exe saves the previous subreddit entries and how many posts you want.
 

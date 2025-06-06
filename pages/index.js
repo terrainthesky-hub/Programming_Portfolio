@@ -17,14 +17,14 @@ export default function Home({ allPostsData }) {
   return (
     <>
       <Head>
-        <title>Your Name | Software Dev & Data Scientist</title>
+        <title>Lesley Rich | Software Dev & Data Scientist</title>
         <meta name="description" content="Portfolio of a software developer and data scientist." />
       </Head>
 
       {/* Hero Section */}
       <section className="text-center py-20">
         <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-          Hi, I'm <span className="text-indigo-600">Your Name</span>.
+          Hi, I'm <span className="text-indigo-600">Lesley</span>.
         </h1>
         <p className="mt-4 text-xl text-gray-600">
           I build intelligent applications and analyze complex data.
@@ -36,7 +36,7 @@ export default function Home({ allPostsData }) {
         <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
         <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
           <p className="text-lg text-gray-700">
-            I'm a passionate developer with a dual focus in full-stack software development and data science. I love leveraging my skills in Python, JavaScript, and machine learning to create meaningful products and extract insights from data. I thrive in environments where I can tackle complex problems and continuously learn.
+            I'm a passionate developer with a dual focus in software development and data science. I love leveraging my skills in Python, JavaScript, and machine learning to create meaningful products and extract insights from data. I thrive in environments where I can tackle complex problems and continuously learn.
           </p>
         </div>
       </section>
