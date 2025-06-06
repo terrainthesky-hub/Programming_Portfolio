@@ -1,3 +1,10 @@
+---
+layout: post
+title: KNN Algorithm breakdown
+subtitle: K Nearest Neighbors
+---
+
+
 I followed this guide on how to solve the KNN algorithm: https://machinelearningmastery.com/tutorial-to-implement-k-nearest-neighbors-in-python-from-scratch/
 
 KNearestNeighbors is essentially just finding the things that are closest in distance. 
