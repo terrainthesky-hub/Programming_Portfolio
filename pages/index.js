@@ -24,7 +24,7 @@ export default function Home({ allPostsData }) {
       {/* Hero Section */}
       <section className="text-center py-20">
         <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-          Hi, I'm <span className="text-indigo-600">Lesley</span>.
+          Hi, I'm <span className="text-indigo-600">Lesley</span>
         </h1>
         <p className="mt-4 text-xl text-gray-600">
           I build intelligent applications and analyze complex data.
