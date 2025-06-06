@@ -26,7 +26,7 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
       </Head>
       <article className="max-w-3xl mx-auto py-12">
-        <div className="bg-white p-8 md:p-12 rounded-lg shadow-lg">
+        <div className="block bg-slate-800 rounded-lg shadow-lg hover:shadow-cyan-500/10 border border-slate-700 hover:border-teal-400 transition-all duration-300 p-6 cursor-pointer">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-2">{postData.title}</h1>
           <p className="text-gray-500 mb-8">{postData.date}</p>
           <div 
