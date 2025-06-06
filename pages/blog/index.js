@@ -24,9 +24,9 @@ export default function Blog({ allPostsData }) {
           {allPostsData.map(({ id, date, title, excerpt }) => (
             <Link href={`/blog/${id}`} key={id}>
               <div className="block bg-slate-800 rounded-lg shadow-lg hover:shadow-cyan-500/10 border border-slate-700 hover:border-teal-400 transition-all duration-300 p-6 cursor-pointer">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">{title}</h2>
-                <p className="text-gray-500 text-sm mb-4">{date}</p>
-                <p className="text-gray-600">{excerpt}</p>
+                <h2 className="text-2xl font-bold text-lg-900 mb-2">{title}</h2>
+                <p className="text-lg text-sm mb-4">{date}</p>
+                <p className="text-lg">{excerpt}</p>
               </div>
             </Link>
           ))}
