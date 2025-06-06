@@ -16,7 +16,7 @@ export default function Blog({ allPostsData }) {
   return (
     <>
       <Head>
-        <title>Blog | Your Name</title>
+        <title>Blog | Lesley</title>
       </Head>
       <section className="py-12">
         <h1 className="text-4xl font-bold text-center mb-12">My Blog</h1>
