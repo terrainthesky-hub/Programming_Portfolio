@@ -35,7 +35,7 @@ export default function Home({ allPostsData }) {
       <section className="py-12">
         <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
         <div className="max-w-3xl mx-auto bg-slate-800 border border-slate-700 p-8 rounded-lg shadow-lg">
-        <p className="text-lg text-slate-300 leading-relaxed">
+        <p className="text-slate-300 leading-relaxed">
             I'm a passionate developer with a dual focus in software development and data science. I love leveraging my skills in Python, JavaScript, and machine learning to create meaningful products and extract insights from data. I thrive in environments where I can tackle complex problems and continuously learn.
           </p>
         </div>
