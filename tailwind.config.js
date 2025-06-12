@@ -49,8 +49,8 @@ module.exports = {
         xl: { // Add customizations for prose-xl
           css: {
             'p': {
-              marginTop: theme('spacing.8'),   // Larger space for xl screens
-              marginBottom: theme('spacing.8'),
+              marginTop: theme('spacing.10'),   // Larger space for xl screens
+              marginBottom: theme('spacing.10'),
               // To add a first-line indent to paragraphs in prose-xl, uncomment the line below:
               // textIndent: theme('spacing.5'), // Example: 1.25rem indent
             },
