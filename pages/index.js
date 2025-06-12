@@ -31,6 +31,20 @@ export default function Home({ allPostsData }) {
         </p>
       </section>
 
+      {/* Contact Section */}
+      <section className="py-12 text-center">
+        <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
+        <p className="text-lg">
+          Feel free to reach out at{' '}
+          <a
+            href="mailto:lesley.t.rich@gmail.com"
+            className="text-indigo-400 hover:underline"
+          >
+            lesley.t.rich@gmail.com
+          </a>
+        </p>
+      </section>
+
       {/* About Section */}
       <section className="py-12">
         <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
