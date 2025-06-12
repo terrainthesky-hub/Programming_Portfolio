@@ -32,8 +32,8 @@ module.exports = {
             '--tw-prose-td-borders': theme('colors.white'),
 
             'p': {
-              marginTop: theme('spacing.4'),
-              marginBottom: theme('spacing.4'),
+              marginTop: theme('spacing.6'), // Increased top margin
+              marginBottom: theme('spacing.6'), // Increased bottom margin
             },
             'a': {
               textDecoration: 'none',
