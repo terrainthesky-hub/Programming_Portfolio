@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const { fontFamily } = require('tailwindcss/defaultTheme'); // Import fontFamily
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -42,6 +43,17 @@ module.exports = {
                 color: theme('colors.teal[300]'),
               },
             },
+          },
+        },
+        xl: { // Add customizations for prose-xl
+          css: {
+            'p': {
+              marginTop: theme('spacing.6'), // Ensure consistent paragraph spacing for xl
+              marginBottom: theme('spacing.6'),
+            },
+            // If you have other DEFAULT prose styles (like link colors) that you want for prose-xl,
+            // you might need to reiterate them here if prose-xl's defaults override them.
+            // However, CSS variables like --tw-prose-body should generally cascade.
           },
         },
       }),
