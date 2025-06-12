@@ -30,7 +30,7 @@ export default function Post({ postData }) {
           <h1 className="text-4xl font-extrabold text-white mb-2">{postData.title}</h1>
           <p className="text-gray-400 mb-8">{postData.date}</p>
           <div
-            className="prose lg:prose-xl max-w-none text-white"
+            className="prose lg:prose-xl max-w-none text-white space-y-6"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           />
         </div>
