@@ -33,10 +33,9 @@ module.exports = {
             '--tw-prose-td-borders': theme('colors.white'),
 
             'p': {
-              marginTop: theme('spacing.4'),    // Significantly increased top margin
-              marginBottom: theme('spacing.4'), // Significantly increased bottom margin
-              // To add a first-line indent to paragraphs, uncomment the line below:
-              textIndent: theme('spacing.4'), // Example: 1.25rem indent
+              marginTop: theme('spacing.8'),    // Provide more space between paragraphs
+              marginBottom: theme('spacing.8'),
+              textIndent: theme('spacing.4'),   // Keep the paragraph indent
             },
             'a': {
               textDecoration: 'none',
@@ -50,8 +49,8 @@ module.exports = {
         xl: { // Add customizations for prose-xl
           css: {
             'p': {
-              marginTop: theme('spacing.8'),    // Significantly increased top margin for xl
-              marginBottom: theme('spacing.8'), // Significantly increased bottom margin for xl
+              marginTop: theme('spacing.10'),   // Larger space for xl screens
+              marginBottom: theme('spacing.10'),
               // To add a first-line indent to paragraphs in prose-xl, uncomment the line below:
               // textIndent: theme('spacing.5'), // Example: 1.25rem indent
             },
