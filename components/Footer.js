@@ -7,6 +7,7 @@ export default function Footer() {
         <div className="flex justify-center space-x-4 mt-2">
             <a href="https://github.com/terrainthesky-hub" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500">GitHub</a>
             <a href="https://linkedin.com/in/lesley-rich-86bb8572/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500">LinkedIn</a>
+            <a href="mailto:lesley.t.rich@gmail.com" className="hover:text-indigo-500">Email</a>
         </div>
       </div>
     </footer>
