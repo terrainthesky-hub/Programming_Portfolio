@@ -61,6 +61,7 @@ module.exports = {
             p: {
               marginTop: theme('spacing.8'),
               marginBottom: theme('spacing.8'),
+              textIndent: theme('spacing.8'),
             },
           },
         },
