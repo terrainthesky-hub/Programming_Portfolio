@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Novel Spiking Neural Network Architecture
-subtitle: Python
+title: New Spiking Neural Network Architecture
+subtitle: Vibing with something novel
 ---
 
 I went down a rabbit hole a while ago thinking about neural networks and how we’re emulating neurons with the action potentials of real neurons, firing and not firing, 1 and 0, but I realized we were missing out on a crucial part of the information; the cadence of neurons firing, the firing over time.
@@ -10,7 +10,7 @@ I had some discussions about this on the internet and someone told me about how 
 
 Unfortunately, spiking neural networks often resulted in less accurate predictions than traditional neural networks, and I was curious to investigate. I worked with Gemini 3.1 to come up with this spiking neural network with some additions.
 
-https://github.com/terrainthesky-hub/Neuro-Symbolic-SNN
+[Neuro-Symbolic-Spiking Neural Network](https://github.com/terrainthesky-hub/Neuro-Symbolic-SNN)
 
 This is a spiking neural network basically updating the weights in real time, but unlearning bad concepts and ignoring non crucial information that would contradict with valuable information. I was worried about malicious contamination in the unlearning process--I imagined a discretionary layer, maybe even an established LLM to discern and recognize patterns, could be used as a meta processing part. Finally, another problem I thought of, the data training curve, we want to generalize and learn as we go, but also keep a map of the learning. How do we solve this problem--I was thinking the discretionary layer LLM could have an embedded vector space to work within to plan this out and update the plan as it goes.
 
@@ -52,4 +52,4 @@ This time I was able to achieve no dead neurons, although there were at least so
 
 After some more testing I learned the discretionary layer was actually somewhat superfluous in the results, and this hypothetical architecture would potentially be more useful for future learning in something like an LLM since that would be dealing with abstract concepts that it would need to gate against whereas something like CIFAR_10 is just an object classifier where there’s no real potential data contamination in the training. The truly valuable idea came from the hippocampal emulation layer that was actually the LLM’s idea. Managing to achieve no dead neurons in a spiking neural network was the truly novel thing about this experiment.
 
-I would love to test this more and potentially at a greater scale and work with a more learned machine learning engineer who can better tweak and fine tune parameters, but it’s definitely something worth investigating further because Spiking Neural Networks offer potetnially 90% efficiency gains over traditional neural networks because they only use activated neurons instead of all the neurons like in standard models.
+I would love to test this more and potentially at a greater scale and work with a more learned machine learning engineer who can better tweak and fine tune parameters, but it’s definitely something worth investigating further because Spiking Neural Networks offer potentially 90% efficiency gains over traditional neural networks because they only use activated neurons instead of all the neurons like in standard models.
