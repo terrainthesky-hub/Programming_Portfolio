@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const { fontFamily } = require('tailwindcss/defaultTheme'); // Import fontFamily
+const { fontFamily } = require('tailwindcss/defaultTheme');
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -7,56 +7,61 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // Add this typography section
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans],
       },
       typography: ({ theme }) => ({
-        DEFAULT: {
+        // Refined palette for `prose-invert` (light text on the dark theme).
+        invert: {
           css: {
-            // Set the base color for prose content
-            '--tw-prose-body': theme('colors.white'),
-            '--tw-prose-headings': theme('colors.white'),
-            '--tw-prose-lead': theme('colors.white'),
-            '--tw-prose-links': theme('colors.white'),
-            '--tw-prose-bold': theme('colors.white'),
-            '--tw-prose-counters': theme('colors.white'),
-            '--tw-prose-bullets': theme('colors.white'),
-            '--tw-prose-hr': theme('colors.white'),
-            '--tw-prose-quotes': theme('colors.white'),
-            '--tw-prose-quote-borders': theme('colors.white'),
-            '--tw-prose-captions': theme('colors.white'),
-            '--tw-prose-code': theme('colors.white'),
-            '--tw-prose-pre-code': theme('colors.white'),
-            '--tw-prose-pre-bg': theme('colors.slate[800]'),
-            '--tw-prose-th-borders': theme('colors.white'),
-            '--tw-prose-td-borders': theme('colors.white'),
-
-            'p': {
-              marginTop: theme('spacing.8'),    // Provide more space between paragraphs
-              marginBottom: theme('spacing.8'),
-              textIndent: theme('spacing.4'),   // Keep the paragraph indent
-            },
-            'a': {
-              textDecoration: 'none',
-              transition: 'color 0.3s ease',
-              '&:hover': {
-                color: theme('colors.teal[300]'),
-              },
-            },
+            '--tw-prose-invert-body': theme('colors.slate[300]'),
+            '--tw-prose-invert-headings': theme('colors.slate[50]'),
+            '--tw-prose-invert-lead': theme('colors.slate[400]'),
+            '--tw-prose-invert-links': theme('colors.teal[300]'),
+            '--tw-prose-invert-bold': theme('colors.slate[100]'),
+            '--tw-prose-invert-counters': theme('colors.slate[400]'),
+            '--tw-prose-invert-bullets': theme('colors.teal[400]'),
+            '--tw-prose-invert-hr': theme('colors.slate[700]'),
+            '--tw-prose-invert-quotes': theme('colors.slate[200]'),
+            '--tw-prose-invert-quote-borders': theme('colors.teal[400]'),
+            '--tw-prose-invert-captions': theme('colors.slate[400]'),
+            '--tw-prose-invert-code': theme('colors.teal[300]'),
+            '--tw-prose-invert-pre-code': theme('colors.slate[200]'),
+            '--tw-prose-invert-pre-bg': theme('colors.slate[900]'),
+            '--tw-prose-invert-th-borders': theme('colors.slate[700]'),
+            '--tw-prose-invert-td-borders': theme('colors.slate[800]'),
           },
         },
-        xl: { // Add customizations for prose-xl
+        DEFAULT: {
           css: {
-            'p': {
-              marginTop: theme('spacing.10'),   // Larger space for xl screens
-              marginBottom: theme('spacing.10'),
-              // To add a first-line indent to paragraphs in prose-xl, uncomment the line below:
-              // textIndent: theme('spacing.5'), // Example: 1.25rem indent
+            a: {
+              textDecoration: 'none',
+              fontWeight: '500',
+              transition: 'color 0.2s ease',
+              '&:hover': {
+                color: theme('colors.teal[200]'),
+              },
             },
-            // If you have other DEFAULT prose styles (like link colors) that you want for prose-xl,
-            // you might need to reiterate them here if prose-xl's defaults override them.
-            // However, CSS variables like --tw-prose-body should generally cascade.
+            'code::before': { content: '""' },
+            'code::after': { content: '""' },
+            code: {
+              backgroundColor: theme('colors.slate[800]'),
+              padding: '0.2em 0.4em',
+              borderRadius: '0.375rem',
+              fontWeight: '500',
+            },
+            pre: {
+              border: `1px solid ${theme('colors.slate[800]')}`,
+              borderRadius: '0.75rem',
+            },
+            img: {
+              borderRadius: '0.75rem',
+              border: `1px solid ${theme('colors.slate[800]')}`,
+            },
+            p: {
+              marginTop: theme('spacing.8'),
+              marginBottom: theme('spacing.8'),
+            },
           },
         },
       }),

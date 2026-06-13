@@ -1,5 +1,6 @@
 // pages/blog/[id].js
 import Head from 'next/head';
+import Link from 'next/link';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 
 export async function getStaticPaths() {
@@ -23,17 +24,34 @@ export default function Post({ postData }) {
   return (
     <>
       <Head>
-        <title>{postData.title}</title>
+        <title>{postData.title} | Lesley Rich</title>
       </Head>
-      <article className="max-w-3xl mx-auto py-12">
-        <div className="block bg-slate-800 rounded-lg shadow-lg hover:shadow-cyan-500/10 border border-slate-700 hover:border-teal-400 transition-all duration-300 p-6 cursor-pointer">
-          <h1 className="text-4xl font-extrabold text-white mb-2">{postData.title}</h1>
-          <p className="text-gray-400 mb-8">{postData.date}</p>
-          <div
-            className="prose lg:prose-xl max-w-none text-white space-y-6"
-            dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-          />
-        </div>
+      <article className="mx-auto max-w-3xl py-12">
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-1 text-sm font-medium text-slate-400 transition-colors hover:text-teal-300"
+        >
+          ← Back to all posts
+        </Link>
+
+        <header className="mt-6 border-b border-slate-800 pb-8">
+          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-50 md:text-5xl">
+            {postData.title}
+          </h1>
+          {postData.subtitle && (
+            <p className="mt-3 text-xl text-slate-400">{postData.subtitle}</p>
+          )}
+          {postData.date && (
+            <p className="mt-4 text-sm font-medium uppercase tracking-wider text-teal-400/80">
+              {postData.date}
+            </p>
+          )}
+        </header>
+
+        <div
+          className="prose prose-invert lg:prose-xl mt-10 max-w-none"
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
       </article>
     </>
   );
